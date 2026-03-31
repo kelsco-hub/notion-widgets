@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Month 2 Gantt Chart</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #ffffff;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 32px;
+        }
+
+        .gantt {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .gantt-header {
+            display: grid;
+            grid-template-columns: 300px repeat(4, 1fr);
+            background: #f5f5f5;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .header-cell {
+            padding: 12px 16px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #333;
+            text-align: center;
+            border-right: 1px solid #e0e0e0;
+        }
+
+        .header-cell:first-child {
+            text-align: left;
+        }
+
+        .header-cell:last-child {
+            border-right: none;
+        }
+
+        .gantt-section {
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .gantt-section:last-child {
+            border-bottom: none;
+        }
+
+        .section-header {
+            display: grid;
+            grid-template-columns: 300px repeat(4, 1fr);
+            background: #fafafa;
+            padding: 12px 0;
+        }
+
+        .section-title {
+            padding: 0 16px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .gantt-row {
+            display: grid;
+            grid-template-columns: 300px repeat(4, 1fr);
+            border-top: 1px solid #f0f0f0;
+            min-height: 48px;
+            align-items: center;
+        }
+
+        .task-name {
+            padding: 12px 16px;
+            font-size: 13px;
+            color: #333;
+            border-right: 1px solid #e0e0e0;
+        }
+
+        .timeline-cell {
+            padding: 8px;
+            border-right: 1px solid #e0e0e0;
+            position: relative;
+        }
+
+        .timeline-cell:last-child {
+            border-right: none;
+        }
+
+        .task-bar {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            height: 28px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 11px;
+            font-weight: 600;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .task-bar.content {
+            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+        }
+
+        .task-bar.optimization {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+
+        .task-bar.tracking {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+
+        .task-bar-span-2 {
+            grid-column: span 2;
+        }
+
+        .task-bar-span-3 {
+            grid-column: span 3;
+        }
+
+        .task-bar-span-4 {
+            grid-column: span 4;
+        }
+
+        .legend {
+            display: flex;
+            gap: 24px;
+            margin-top: 24px;
+            padding: 16px;
+            background: #f9fafb;
+            border-radius: 6px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 3px;
+        }
+
+        .legend-color.content {
+            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+        }
+
+        .legend-color.optimization {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+
+        .legend-color.tracking {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Month 2: Core Execution & Content Launch</h2>
+        <div class="subtitle">4-Week Timeline (Weeks 5-8)</div>
+
+        <div class="gantt">
+            <!-- Header -->
+            <div class="gantt-header">
+                <div class="header-cell">Activity</div>
+                <div class="header-cell">Week 5</div>
+                <div class="header-cell">Week 6</div>
+                <div class="header-cell">Week 7</div>
+                <div class="header-cell">Week 8</div>
+            </div>
+
+            <!-- Content Production Section -->
+            <div class="gantt-section">
+                <div class="section-header">
+                    <div class="section-title">Content Production (~15 Posts)</div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                
+                <div class="gantt-row">
+                    <div class="task-name">Cluster 1: Brand Ownership (3-4 posts)</div>
+                    <div class="timeline-cell">
+                        <div class="task-bar content task-bar-span-2"></div>
+                    </div>
+                    <div class="timeline-cell"></div>
+                    <div class="timeline-cell"></div>
+                    <div class="timeline-cell"></div>
+                </div>
+
+                <div class="gantt-row">
+                    <div class="task-name">Cluster 2: Product Category (5-6 posts)</div>
+                    <div class="timeline-cell"></div>
+                    <div class="timeline-cell">
+                        <div class="task-bar content task-bar-span-2"></div>
+                    </div>
+                    <div class="timeline-cell"></div>
+                    <div class="timeline-cell"></div>
+                </div>
+
+                <div class="gantt-row">
+                    <div class="task-name">Cluster 3: Healthy Alternatives (5-6 posts)</div>
+                    <div class="timeline-cell"></div>
+                    <div class="timeline-cell"></div>
+                    <div class="timeline-cell">
+                        <div class="task-bar content task-bar-span-2"></div>
+                    </div>
+                    <div class="timeline-cell"></div>
+                </div>
+
+                <div class="gantt-row">
+                    <div class="task-name">Schema Implementation (Article, FAQ)</div>
+                    <div class="timeline-cell"></div>
+                    <div class="timeline-cell"></div>
+                    <div class="timeline-cell"></div>
+                    <div class="timeline-cell">
+                        <div class="task-bar content"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- On-Site Optimization Section -->
+            <div class="gantt-section">
+                <div class="section-header">
+                    <div class="section-title">On-Site Optimization</div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                
+                <div class="gantt-row">
+                    <div class="task-name">On-Page Keyword Targeting</div>
+                    <div class="timeline-cell" style="grid-column: span 4;">
+                        <div class="task-bar optimization task-bar-span-4"></div>
+                    </div>
+                </div>
+
+                <div class="gantt-row">
+                    <div class="task-name">Internal Linking Strategy</div>
+                    <div class="timeline-cell"></div>
+                    <div class="timeline-cell" style="grid-column: span 3;">
+                        <div class="task-bar optimization task-bar-span-3"></div>
+                    </div>
+                </div>
+
+                <div class="gantt-row">
+                    <div class="task-name">Product Page Enhancements</div>
+                    <div class="timeline-cell"></div>
+                    <div class="timeline-cell"></div>
+                    <div class="timeline-cell">
+                        <div class="task-bar optimization task-bar-span-2"></div>
+                    </div>
+                    <div class="timeline-cell"></div>
+                </div>
+            </div>
+
+            <!-- Performance Tracking Section -->
+            <div class="gantt-section">
+                <div class="section-header">
+                    <div class="section-title">Performance Tracking</div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                
+                <div class="gantt-row">
+                    <div class="task-name">Looker Studio Dashboard Build</div>
+                    <div class="timeline-cell"></div>
+                    <div class="timeline-cell"></div>
+                    <div class="timeline-cell"></div>
+                    <div class="timeline-cell">
+                        <div class="task-bar tracking"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color content"></div>
+                <span>Content Production</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color optimization"></div>
+                <span>On-Site Optimization</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color tracking"></div>
+                <span>Performance Tracking</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
