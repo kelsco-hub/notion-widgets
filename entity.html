@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liquid Death Entity Ecosystem</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #ffffff;
+            padding: 60px 40px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 900;
+            margin-bottom: 60px;
+            color: #1a1a1a;
+        }
+
+        /* Pillar Page (Central Entity) */
+        .pillar-page {
+            background: #fff;
+            border: 3px solid #e0e0e0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            margin-bottom: 60px;
+        }
+
+        .pillar-header {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pillar-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .pillar-dots span {
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+        }
+
+        .pillar-content {
+            padding: 40px 30px;
+        }
+
+        .pillar-title {
+            font-size: 24px;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #1a1a1a;
+            line-height: 1.3;
+        }
+
+        .pillar-clusters {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .pillar-cluster-item {
+            padding: 16px 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+        }
+
+        .pillar-cluster-item:hover {
+            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .cluster-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .cluster-badges {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .badge {
+            font-size: 9px;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-tier {
+            background: rgba(0, 0, 0, 0.05);
+            color: #666;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .badge-goal {
+            color: #fff;
+        }
+
+        .badge-revenue {
+            background: #10b981;
+        }
+
+        .badge-traffic {
+            background: #3b82f6;
+        }
+
+        .badge-content {
+            background: #8b5cf6;
+        }
+
+        /* Tier colors for blocks */
+        .cluster-tier-1 {
+            background: #d1fae5;
+        }
+
+        .cluster-tier-2 {
+            background: #dbeafe;
+        }
+
+        .cluster-tier-3 {
+            background: #ede9fe;
+        }
+
+        /* Legend */
+        .legend {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .legend-box {
+            background: #f9fafb;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .legend-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .legend-number {
+            width: 36px;
+            height: 36px;
+            background: #1a1a1a;
+            color: #fff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 18px;
+        }
+
+        .legend-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .legend-list {
+            list-style: none;
+        }
+
+        .legend-list li {
+            font-size: 13px;
+            color: #333;
+            padding: 6px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .legend-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #999;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Liquid Death Entity Ecosystem</h1>
+        
+        <!-- Pillar Page -->
+        <div class="pillar-page">
+            <div class="pillar-header">
+                <div class="pillar-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="pillar-content">
+                <div class="pillar-title">LIQUID DEATH<br>Central Brand Entity</div>
+                <div class="pillar-clusters">
+                    <!-- Cluster 1 -->
+                    <div class="pillar-cluster-item cluster-tier-2">
+                        <div class="cluster-name">Brand Ownership</div>
+                        <div class="cluster-badges">
+                            <span class="badge badge-tier">TIER 2</span>
+                            <span class="badge badge-goal badge-traffic">TRAFFIC</span>
+                        </div>
+                    </div>
+
+                    <!-- Cluster 2 -->
+                    <div class="pillar-cluster-item cluster-tier-1">
+                        <div class="cluster-name">Product Category Authority</div>
+                        <div class="cluster-badges">
+                            <span class="badge badge-tier">TIER 1</span>
+                            <span class="badge badge-goal badge-revenue">REVENUE</span>
+                        </div>
+                    </div>
+
+                    <!-- Cluster 3 -->
+                    <div class="pillar-cluster-item cluster-tier-1">
+                        <div class="cluster-name">Healthy Alternatives Education</div>
+                        <div class="cluster-badges">
+                            <span class="badge badge-tier">TIER 1</span>
+                            <span class="badge badge-goal badge-revenue">REVENUE</span>
+                        </div>
+                    </div>
+
+                    <!-- Cluster 4 -->
+                    <div class="pillar-cluster-item cluster-tier-1">
+                        <div class="cluster-name">Use Case Solutions</div>
+                        <div class="cluster-badges">
+                            <span class="badge badge-tier">TIER 1</span>
+                            <span class="badge badge-goal badge-revenue">REVENUE</span>
+                        </div>
+                    </div>
+
+                    <!-- Cluster 5 -->
+                    <div class="pillar-cluster-item cluster-tier-3">
+                        <div class="cluster-name">Mixology & Recipes</div>
+                        <div class="cluster-badges">
+                            <span class="badge badge-tier">TIER 3</span>
+                            <span class="badge badge-goal badge-content">CONTENT</span>
+                        </div>
+                    </div>
+
+                    <!-- Cluster 6 -->
+                    <div class="pillar-cluster-item cluster-tier-2">
+                        <div class="cluster-name">Sustainability & Values</div>
+                        <div class="cluster-badges">
+                            <span class="badge badge-tier">TIER 2</span>
+                            <span class="badge badge-goal badge-content">CONTENT</span>
+                        </div>
+                    </div>
+
+                    <!-- Cluster 7 -->
+                    <div class="pillar-cluster-item cluster-tier-3">
+                        <div class="cluster-name">Culture & Lifestyle</div>
+                        <div class="cluster-badges">
+                            <span class="badge badge-tier">TIER 3</span>
+                            <span class="badge badge-goal badge-content">CONTENT</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Legend -->
+        <div class="legend">
+            <div class="legend-box">
+                <div class="legend-header">
+                    <div class="legend-number">1</div>
+                    <div class="legend-title">Revenue Drivers</div>
+                </div>
+                <ul class="legend-list">
+                    <li>Product Category Authority</li>
+                    <li>Healthy Alternatives Education</li>
+                    <li>Use Case Solutions</li>
+                </ul>
+            </div>
+
+            <div class="legend-box">
+                <div class="legend-header">
+                    <div class="legend-number">2</div>
+                    <div class="legend-title">Authority Builders</div>
+                </div>
+                <ul class="legend-list">
+                    <li>Brand Ownership</li>
+                    <li>Sustainability & Values</li>
+                </ul>
+            </div>
+
+            <div class="legend-box">
+                <div class="legend-header">
+                    <div class="legend-number">3</div>
+                    <div class="legend-title">Engagement & Links</div>
+                </div>
+                <ul class="legend-list">
+                    <li>Mixology & Recipes</li>
+                    <li>Culture & Lifestyle</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
